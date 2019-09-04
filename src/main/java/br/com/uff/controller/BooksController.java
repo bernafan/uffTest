@@ -19,14 +19,17 @@ import java.util.List;
 @Controller
 @RequestMapping("/books")
 public class BooksController {
-    private EntityManagerFactory emf;
     BooksDao booksDao = new BooksDao(Persistence.createEntityManagerFactory("library"));
 
-    @GetMapping(path = "/list")
+    @GetMapping("/home")
+    public String home() {
+        return "/home";
+    }
+    @GetMapping(path = "/listar")
     public String getBooks(ModelMap model) {
         List<Books> books = booksDao.findAll();
         model.addAttribute("books", books);
-        return "lista"; // return to a page
+        return "/listar"; // return to a page
     }
 
 //    @GetMapping(path = "/list/{author}")
@@ -45,7 +48,7 @@ public class BooksController {
         booksDao.save(book);
         return "redirect:/books/list";
     }
-    // the html page would have and genre attribute that will receive return values from this method
+    // the html page would have a genre attribute that will  return values from this method
     // spring will fill the variable values in the page with this method
 //    @ModelAttribute("genre")
 //    public BooksGenre[] fillComboboxGenre() {

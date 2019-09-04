@@ -24,6 +24,10 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
@@ -40,6 +44,7 @@
     </dependencies>
     <build>
         <plugins>
+            <!--Makes the project executable as .jar-->
             <plugin>
                 <groupId>org.springFramework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
